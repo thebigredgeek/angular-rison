@@ -1,0 +1,43 @@
+{
+  "name": "angular-rison",
+  "version": "0.0.1",
+  "description": "Rison Object Encoding Service for AngularJS",
+  "main": "dist/angular-rison.min.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "install": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thebigredgeek/angular-rison.git"
+  },
+  "keywords": [
+    "encoding",
+    "angularjs",
+    "service",
+    "rison"
+  ],
+  "author": "Andrew E. Rhyne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thebigredgeek/angular-rison/issues"
+  },
+  "devDependencies": {
+    "grunt-plato": "~0.2.1",
+    "grunt-jsdoc": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-concurrent": "~0.3.1",
+    "grunt-karma": "~0.6.2",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-strip": "~0.2.1",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt": "~0.4.1",
+    "grunt-contrib-connect": "~0.5.0",
+    "karma-coverage": "~0.1.0",
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "angular-rison",
+  "version": "0.0.1",
+  "main": "dist/angular-rison.min.js",
+  "ignore": [
+    "node_modules"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": "~1.0.8"
+  }
+}
