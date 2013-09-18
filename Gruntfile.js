@@ -6,9 +6,26 @@ module.exports = function(grunt){
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		bump:{
+			options:{
+				files:[
+					'package.json',
+					'bower.json'
+				],
+				updateConfigs: ['pkg'],
+				commit: true,
+				commitMessage: 'Release v%VERSION%',
+				commitFiles: ['-a'],
+				createTag: true,
+				tagName: 'v%VERSION%',
+				tagMessage: 'Version %VERSION%',
+				push: true
+			}
+		},
 		karma:{
 			unit:{
-				configFile: "Karma.js"
+				configFile: "Karma.js",
+				autowatch: false
 			}
 		},
 		connect:{
@@ -19,7 +36,6 @@ module.exports = function(grunt){
 						'docs',
 						'analytics'
 					],
-					livereload:true,
 					keepalive:true
 				}
 			}
@@ -139,6 +155,6 @@ module.exports = function(grunt){
 	}
 	grunt.registerTask('default',["concurrent"]);
 	grunt.registerTask('test',['jshint','karma','plato']);
-	grunt.registerTask('dist',['clean','jshint','karma','concat','strip','uglify','docs']);
+	grunt.registerTask('dist',['clean','jshint','karma','concat','strip','uglify','jsdoc','bump']);
 	grunt.registerTask('docs',['jshint','karma','plato','docs']);
 };

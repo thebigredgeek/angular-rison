@@ -1,6 +1,6 @@
 {
   "name": "angular-rison",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Rison Object Encoding Service for AngularJS",
   "main": "dist/angular-rison.min.js",
   "directories": {
@@ -38,6 +38,7 @@
     "grunt": "~0.4.1",
     "grunt-contrib-connect": "~0.5.0",
     "karma-coverage": "~0.1.0",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-bump": "0.0.11"
   }
 }
