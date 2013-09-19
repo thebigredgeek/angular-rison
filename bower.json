@@ -1,9 +1,13 @@
 {
   "name": "angular-rison",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/angular-rison.min.js",
   "ignore": [
-    "node_modules"
+    "analytics",
+    "node_modules",
+    "vendor",
+    "test",
+    "docs"
   ],
   "dependencies": {},
   "devDependencies": {

@@ -81,6 +81,7 @@ module.exports = function(grunt){
 		},
 		watch:{
 			files:[
+				"README.md",
 				"src/**/*.js",
 				"test/**/*.js"
 			],
@@ -95,6 +96,8 @@ module.exports = function(grunt){
 				stripBanners:true,
 				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
         				'<%= grunt.template.today("yyyy-mm-dd") %> */',
+        		process:true
+			
 			},
 			dist:{
 				src:["src/**/*.js"],
@@ -138,7 +141,10 @@ module.exports = function(grunt){
 		},
 		jsdoc:{
 			dist:{
-				src: ["src/**/*.js"],
+				src: [
+					"README.md",
+					"dist/angular-rison.js"
+				],
 				options:{
 					destination: 'docs'
 				}
@@ -155,7 +161,7 @@ module.exports = function(grunt){
 		}
 	}
 	grunt.registerTask('default',["concurrent"]);
-	grunt.registerTask('test',['jshint','karma','plato']);
+	grunt.registerTask('test',['jshint','karma','plato','jsdoc']);
 	grunt.registerTask('dist',['clean','jshint','karma','concat','strip','uglify','jsdoc','bump']);
-	grunt.registerTask('docs',['jshint','karma','plato','docs']);
+	grunt.registerTask('build',['clean','jshint','karma','concat','strip','uglify','jsdoc']);
 };
