@@ -200,7 +200,7 @@ angular.module('rison',[])
 
 			privateMembers.parser.prototype.error = function (message) {
 			    if (typeof(console) != 'undefined')
-			        console.log('rison parser error: ', message);
+			        console.error('Rison parser error: ', message);
 			    this.message = message;
 			    return undefined;
 			};

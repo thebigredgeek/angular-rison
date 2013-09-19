@@ -53,7 +53,12 @@ module.exports = function(grunt){
 			dist:{
 				src:"dist/angular-rison.js",
 				options:{
-					inline:true
+					inline:true,
+					nodes:[
+						'console.log',
+						'console.warn',
+						'debug'
+					]
 				}
 			}
 		},

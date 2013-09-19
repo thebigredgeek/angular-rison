@@ -3,6 +3,19 @@ Angular Rison Service
 
 Rison URL Object encoding service for Angular.  Encode infinite-depth javascript objects into a url-friendly string.
 
+
+Example:
+
+    {
+		"a":0,
+		"b":"foo",
+		"c":"23skidoo"
+	}
+
+Becomes the following, URI safe string:
+
+	(a:0,b:foo,c:'23skidoo')
+
 Installing with Bower
 =====================
 Very simple
@@ -12,7 +25,7 @@ Very simple
 
 Documentation
 =============
-The rison service provides two functions, stringifiy and parse.  These two functions operate in the same manner as the traditional JSON object methods.
+The rison service provides two functions, stringifiy and parse.  These two functions operate in the same manner as the traditional JSON object methods.  Further documentation can be found by building the project and viewing the docs (see below).
 
 
 Contributing - Steps
