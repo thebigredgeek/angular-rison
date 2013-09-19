@@ -6,6 +6,7 @@ Rison URL Object encoding service for Angular.  Encode infinite-depth javascript
 Installing with Bower
 =====================
 Very simple
+    
     bower install angular-rison
 
 
