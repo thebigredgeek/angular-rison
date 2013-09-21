@@ -1,4 +1,4 @@
-/*! angular-rison - v0.0.9 - 2013-09-18 */
+/*! angular-rison - v0.0.11 - 2013-09-20 */
 angular.module('rison',[])
 	/**
 	 * The $rison class/service provides a simple API for encoding and 
@@ -13,7 +13,7 @@ angular.module('rison',[])
 	 *         // object === $rison.parse(string) will evalutate to true
 	 * }]);
 	 *
-	 * @version v0.0.9
+	 * @version v0.0.11
 	 * @name $rison
 	 * @class
 	 */
@@ -33,25 +33,16 @@ angular.module('rison',[])
 			 */
 			privateMembers.not_idstart = "-0123456789";
 
+            privateMembers.idRegularExpression = '[^' + privateMembers.not_idstart + privateMembers.not_idchar +
+                                                 '][^' + privateMembers.not_idchar + ']*';
 
-			(function () {
-			    var idrx = '[^' + privateMembers.not_idstart + privateMembers.not_idchar + 
-			               '][^' + privateMembers.not_idchar + ']*';
+            privateMembers.id_ok = new RegExp('^'+privateMembers.idRegularExpression+'$');
+            privateMembers.next_id = new RegExp(privateMembers.idRegularExpression, 'g');
 
-			    privateMembers.id_ok = new RegExp('^' + idrx + '$');
-
-			    // regexp to find the end of an id when parsing
-			    // g flag on the regexp is necessary for iterative regexp.exec()
-			    privateMembers.next_id = new RegExp(idrx, 'g');
-			})();
-
-
-			//
-			//  based on json.js 2006-04-28 from json.org
-			//  license: http://www.json.org/license.html
-			//
-			//  hacked by nix for use in uris.
-			//
+            privateMembers.sq = {
+                "'":true,
+                "!":true
+            };
 
 			(function () {
 			    var sq = { // url-ok but quoted in strings

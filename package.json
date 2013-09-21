@@ -1,6 +1,6 @@
 {
   "name": "angular-rison",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Rison Object Encoding Service for AngularJS",
   "main": "dist/angular-rison.min.js",
   "directories": {
