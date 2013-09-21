@@ -1,4 +1,4 @@
-/*! angular-rison - v0.0.11 - 2013-09-20 */
+/*! angular-rison - v0.0.12 - 2013-09-20 */
 angular.module('rison',[])
 	/**
 	 * The $rison class/service provides a simple API for encoding and 
@@ -13,7 +13,7 @@ angular.module('rison',[])
 	 *         // object === $rison.parse(string) will evalutate to true
 	 * }]);
 	 *
-	 * @version v0.0.11
+	 * @version v0.0.12
 	 * @name $rison
 	 * @class
 	 */
