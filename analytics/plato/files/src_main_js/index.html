@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">61.65</p>
+      <p class="stat">61.03</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">373</p>
+      <p class="stat">364</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">86.41</p>
+      <p class="stat">87.51</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">3.45</p>
+      <p class="stat">3.48</p>
     </div>
   </div>
 </div>
@@ -124,25 +124,16 @@
 			 */
 			privateMembers.not_idstart = &quot;-0123456789&quot;;
 
+            privateMembers.idRegularExpression = &#039;[^&#039; + privateMembers.not_idstart + privateMembers.not_idchar +
+                                                 &#039;][^&#039; + privateMembers.not_idchar + &#039;]*&#039;;
 
-			(function () {
-			    var idrx = &#039;[^&#039; + privateMembers.not_idstart + privateMembers.not_idchar + 
-			               &#039;][^&#039; + privateMembers.not_idchar + &#039;]*&#039;;
+            privateMembers.id_ok = new RegExp(&#039;^&#039;+privateMembers.idRegularExpression+&#039;$&#039;);
+            privateMembers.next_id = new RegExp(privateMembers.idRegularExpression, &#039;g&#039;);
 
-			    privateMembers.id_ok = new RegExp(&#039;^&#039; + idrx + &#039;$&#039;);
-
-			    // regexp to find the end of an id when parsing
-			    // g flag on the regexp is necessary for iterative regexp.exec()
-			    privateMembers.next_id = new RegExp(idrx, &#039;g&#039;);
-			})();
-
-
-			//
-			//  based on json.js 2006-04-28 from json.org
-			//  license: http://www.json.org/license.html
-			//
-			//  hacked by nix for use in uris.
-			//
+            privateMembers.sq = {
+                &quot;&#039;&quot;:true,
+                &quot;!&quot;:true
+            };
 
 			(function () {
 			    var sq = { // url-ok but quoted in strings

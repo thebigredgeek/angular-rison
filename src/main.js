@@ -33,25 +33,16 @@ angular.module('rison',[])
 			 */
 			privateMembers.not_idstart = "-0123456789";
 
+            privateMembers.idRegularExpression = '[^' + privateMembers.not_idstart + privateMembers.not_idchar +
+                                                 '][^' + privateMembers.not_idchar + ']*';
 
-			(function () {
-			    var idrx = '[^' + privateMembers.not_idstart + privateMembers.not_idchar + 
-			               '][^' + privateMembers.not_idchar + ']*';
+            privateMembers.id_ok = new RegExp('^'+privateMembers.idRegularExpression+'$');
+            privateMembers.next_id = new RegExp(privateMembers.idRegularExpression, 'g');
 
-			    privateMembers.id_ok = new RegExp('^' + idrx + '$');
-
-			    // regexp to find the end of an id when parsing
-			    // g flag on the regexp is necessary for iterative regexp.exec()
-			    privateMembers.next_id = new RegExp(idrx, 'g');
-			})();
-
-
-			//
-			//  based on json.js 2006-04-28 from json.org
-			//  license: http://www.json.org/license.html
-			//
-			//  hacked by nix for use in uris.
-			//
+            privateMembers.sq = {
+                "'":true,
+                "!":true
+            };
 
 			(function () {
 			    var sq = { // url-ok but quoted in strings

@@ -24,10 +24,14 @@ module.exports = function(grunt){
 			}
 		},
 		karma:{
-			unit:{
-				configFile: "Karma.js",
+			pre:{
+				configFile: "karma.pre.js",
 				autowatch: false
-			}
+			},
+            post:{
+                configFile: "karma.post.js",
+                autowatch: false
+            }
 		},
 		connect:{
 			server:{
@@ -166,7 +170,7 @@ module.exports = function(grunt){
 		}
 	}
 	grunt.registerTask('default',["concurrent"]);
-	grunt.registerTask('test',['jshint','karma','plato','jsdoc']);
-	grunt.registerTask('dist',['clean','jshint','karma','concat','strip','uglify','jsdoc','bump']);
-	grunt.registerTask('build',['clean','jshint','karma','concat','strip','uglify','jsdoc']);
+	grunt.registerTask('test',['jshint','karma:pre','plato','jsdoc']);
+	grunt.registerTask('dist',['clean','jshint','karma:pre','concat','strip','uglify','karma:post','jsdoc','bump']);
+	grunt.registerTask('build',['clean','jshint','karma:post','concat','strip','uglify','karma:post','jsdoc']);
 };

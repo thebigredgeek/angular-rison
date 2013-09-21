@@ -3,6 +3,8 @@ Angular Rison Service
 
 Rison URL Object encoding service for Angular.  Encode infinite-depth javascript objects into a url-friendly string.
 
+Ported and extended from the original spec: http://mjtemplate.org/examples/rison.html
+
 
 Example:
 
